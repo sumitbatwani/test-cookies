@@ -1,14 +1,11 @@
-<html>
 <body>
-<script>
- if (window.parent) {
-	if (/thirdparty=yes/.test(document.cookie)) {
-		window.parent.postMessage('T3PCsupported', '*');
-	} else {
-		window.parent.postMessage('T3PCunsupported', '*');
-	}
-	document.cookie = 'thirdparty=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
- }
-</script>
+    <script>
+        (function () {
+            if (!window.parent) return;
+            var msg = /s=1/.test(document.cookie)
+                ? "T3PCsupported"
+                : "T3PCunsupported";
+            window.parent.postMessage(msg, "*");
+        })();
+    </script>
 </body>
-</html>
