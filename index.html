@@ -1,11 +1,6 @@
 <body>
-    <script>
-        (function () {
-            if (!window.parent) return;
-            var msg = /s=1/.test(document.cookie)
-                ? "T3PCsupported"
-                : "T3PCunsupported";
-            window.parent.postMessage(msg, "*");
-        })();
-    </script>
+<script>
+    document.cookie="thirdparty=yes; Max-Age=3600; SameSite=None; Secure";
+    document.location="readcookie.html";
+</script>
 </body>
