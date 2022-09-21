@@ -1,0 +1,19 @@
+<html>
+
+<body>
+    <script>
+       document.cookie = "s=1; SameSite=None; Secure";
+       // document.location = "read-cookie.html";
+      
+      (function () {
+            if (!window.parent) return;
+            var msg = /s=1/.test(document.cookie)
+                ? "T3pcSupported"
+                : "T3pcUnsupported";
+            window.parent.postMessage(msg, "*");
+        })();ent.cookie = 'thirdparty=; expires=Thu, 01 Jan 1970 00:00:01 GMT;'
+      }
+    </script>
+</body>
+
+</html>
