@@ -6,9 +6,9 @@
         
        if (window.parent) {
             if (/thirdparty=yes/.test(document.cookie)) {
-                window.parent.postMessage('T3pc.supported', '*')
+                window.parent.postMessage('ThirdPartyCookieSupported', '*')
             } else {
-                window.parent.postMessage('T3pc.unsupported', '*')
+                window.parent.postMessage('ThirdPartyCookieNotSupported', '*')
             }
             document.cookie = 'thirdparty=; expires=Thu, 01 Jan 1970 00:00:01 GMT;'
        }
