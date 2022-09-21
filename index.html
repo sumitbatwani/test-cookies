@@ -2,14 +2,16 @@
 
 <body>
     <script>
-       document.cookie = "s=1; SameSite=None; Secure";
-        (function () {
-            if (!window.parent) return;
-            var msg = /s=1/.test(document.cookie)
-                ? "T3pcSupported"
-                : "T3pcUnsupported";
-            window.parent.postMessage(msg, "*");
-        })();
+       document.cookie = "thirdparty=yes; SameSite=None; Secure";
+        
+       if (window.parent) {
+            if (/thirdparty=yes/.test(document.cookie)) {
+                window.parent.postMessage('T3pc.supported', '*')
+            } else {
+                window.parent.postMessage('T3pc.unsupported', '*')
+            }
+            document.cookie = 'thirdparty=; expires=Thu, 01 Jan 1970 00:00:01 GMT;'
+       }
     </script>
 </body>
 
